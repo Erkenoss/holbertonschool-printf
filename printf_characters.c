@@ -40,7 +40,7 @@ int specifiers(va_list format_args, const char format, int total)
 	}
 	_putchar('%');
 	_putchar(format);
-	total+= 2;
+	total += 2;
 	return (total);
 }
 
@@ -78,7 +78,7 @@ int printf_string(va_list format_args, int total)
 int printf_char(va_list format_args, int total)
 {
 	char args = va_arg(format_args, int);
-	
+
 	_putchar(args);
 	total++;
 
