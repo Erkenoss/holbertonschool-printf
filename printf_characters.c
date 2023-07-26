@@ -106,7 +106,7 @@ int _printf(const char *format, ...)
 
 	va_start(format_args, format);
 	if (format == NULL)
-		format == "(nil)";
+		format = "(nil)";
 
 	while (_for[check] != '\0')
 	{
