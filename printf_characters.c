@@ -103,6 +103,9 @@ int _printf(const char *format, ...)
 	int total = 0, check = 0;
 	const char *_for = format;
 	va_list format_args;
+	
+	if (format == NULL)
+		return (-1);
 
 	va_start(format_args, format);
 
