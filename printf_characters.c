@@ -82,6 +82,8 @@ int printf_char(va_list format_args, int total)
 {
 	char args = va_arg(format_args, int);
 
+	if (args == 0)
+		return (total);
 	_putchar(args);
 	total++;
 
