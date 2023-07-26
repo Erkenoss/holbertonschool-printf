@@ -111,6 +111,8 @@ int _printf(const char *format, ...)
 
 	while (_for[check] != '\0')
 	{
+		if (_for[check] == '%' && _for[check + 1] == '\0')
+			return (-1);
 		if (_for[check] == '%')
 		{
 			total = specifiers(format_args, _for[check + 1], total);
