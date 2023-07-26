@@ -101,13 +101,11 @@ int printf_char(va_list format_args, int total)
 int _printf(const char *format, ...)
 {
 	int total = 0, check = 0;
-	const char *_for;
+	const char *_for = format;
 	va_list format_args;
 
 	va_start(format_args, format);
-	if (format == NULL)
-		format = "(nil)";
-	_for = format;
+
 	while (_for[check] != '\0')
 	{
 		if (_for[check] == '%')
