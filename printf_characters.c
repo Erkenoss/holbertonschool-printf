@@ -55,13 +55,13 @@ int specifiers(va_list format_args, const char format, int total)
 
 int printf_string(va_list format_args, int total)
 {
-	const char *args = va_arg(format_args, char *);
+	char *args = va_arg(format_args, char *);
 	int putchar_string = 0;
 
 	if (args == NULL)
-		return (total);
+		args = "(null)";
 
-	while (args != NULL && args[putchar_string] != '\0')
+	while (args[putchar_string] != '\0')
 	{
 		_putchar(args[putchar_string]);
 		putchar_string++;
