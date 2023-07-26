@@ -58,6 +58,9 @@ int printf_string(va_list format_args, int total)
 	const char *args = va_arg(format_args, char *);
 	int putchar_string = 0;
 
+	if (args == NULL)
+		return (total);
+
 	while (args != NULL && args[putchar_string] != '\0')
 	{
 		_putchar(args[putchar_string]);
