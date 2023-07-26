@@ -22,6 +22,13 @@ int specifiers(va_list format_args, const char format, int total)
 	};
 	int check_tab = 0;
 
+	if (format == '%')
+	{
+		_putchar('%');
+		total++;
+		return (total);
+	}
+
 	while (tab_spec[check_tab].specifiers != 0)
 	{
 		if (tab_spec[check_tab].specifiers == format)
@@ -30,12 +37,6 @@ int specifiers(va_list format_args, const char format, int total)
 			return (total);
 		}
 		check_tab++;
-	}
-	if (format == '%')
-	{
-		_putchar('%');
-		total++;
-		return (total);
 	}
 	_putchar('%');
 	_putchar(format);
