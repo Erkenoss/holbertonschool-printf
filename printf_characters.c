@@ -17,7 +17,6 @@ int specifiers(va_list format_args, const char format, int total)
 {
 	convert_t tab_spec[] = {
 		{'c', printf_char},
-		{'C', printf_char},
 		{'s', printf_string},
 		{0, NULL}
 	};
@@ -107,7 +106,8 @@ int _printf(const char *format, ...)
 
 	va_start(format_args, format);
 	if (format == NULL)
-		return (0);
+		format == "(nil)";
+
 	while (_for[check] != '\0')
 	{
 		if (_for[check] == '%')
