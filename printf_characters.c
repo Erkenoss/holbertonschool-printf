@@ -9,8 +9,8 @@
  * @format: formatr give by _printf
  * @total: total characters in the ouput
  * @format_args: argument in the list
- * Return: no return, void function
  *
+ * Return: no return, void function
  */
 
 int specifiers(va_list format_args, const char format, int total)
@@ -18,6 +18,8 @@ int specifiers(va_list format_args, const char format, int total)
 	convert_t tab_spec[] = {
 		{'c', printf_char},
 		{'s', printf_string},
+		{'i', printf_int},
+		{'d', printf_int},
 		{0, NULL}
 	};
 	int check_tab = 0;
@@ -49,8 +51,8 @@ int specifiers(va_list format_args, const char format, int total)
  *
  * @total: total characters in the ouput
  * @format_args: argument in the list
- * Return: total
  *
+ * Return: total
  */
 
 int printf_string(va_list format_args, int total)
@@ -75,6 +77,7 @@ int printf_string(va_list format_args, int total)
  *
  * @total: total characters in the ouput
  * @format_args: argument in the list
+ *
  * Return: total
  */
 
@@ -88,6 +91,36 @@ int printf_char(va_list format_args, int total)
 	return (total);
 }
 
+
+
+
+int printf_int(va_list format_args, int total)
+{
+	int display_int = va_arg(format_args, int);	
+	int add_in = 0;
+	int buffer[20];
+	int last_digit;
+
+	if (display_int < 0)
+	{
+		_putchar('-');
+		display_int = -display_int;
+	}
+	while (display_int != 0)
+	{
+		last_digit = display_int % 10;
+		buffer[add_in] = last_digit;
+		add_in++;
+		display_int = display_int /10;
+	}
+	while (add_in > 0)
+	{
+		_putchar('0' + buffer[add_in - 1]);
+		add_in--;
+		total++;
+	}
+	return (total);
+}
 /**
  * _printf - print the character give in imput
  * check exemple in man page

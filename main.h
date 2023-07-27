@@ -21,6 +21,6 @@ int specifiers(va_list format_args, const char format, int total);
 int _printf(const char *format, ...);
 int printf_char(va_list format_args, int total);
 int printf_string(va_list format_args, int total);
-int printf_percent(va_list format_args, int total);
+int printf_int(va_list format_args, int total);
 
 #endif
