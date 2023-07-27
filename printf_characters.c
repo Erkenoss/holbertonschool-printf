@@ -7,7 +7,7 @@
  * specifiers - print a string
  *
  * @format: formatr give by _printf
- * @total: total characters in the ouput
+ * @total: total characters in the output
  * @format_args: argument in the list
  *
  * Return: no return, void function
@@ -49,7 +49,7 @@ int specifiers(va_list format_args, const char format, int total)
 /**
  * printf_string - print a string
  *
- * @total: total characters in the ouput
+ * @total: total characters in the output
  * @format_args: argument in the list
  *
  * Return: total
@@ -75,7 +75,7 @@ int printf_string(va_list format_args, int total)
 /**
  * printf_char - print a simple char
  *
- * @total: total characters in the ouput
+ * @total: total characters in the output
  * @format_args: argument in the list
  *
  * Return: total
@@ -91,11 +91,18 @@ int printf_char(va_list format_args, int total)
 	return (total);
 }
 
-
+/**
+ * printf_int - print an int give in the format
+ *
+ * @format_args: it's the actual format from specifiers
+ * @total: total characters int the output
+ *
+ * Return: total
+ */
 
 int printf_int(va_list format_args, int total)
 {
-	long display_int = va_arg(format_args, int);	
+	long display_int = va_arg(format_args, int);
 	int add_in = 0;
 	int buffer[20];
 	int last_digit;
@@ -116,7 +123,7 @@ int printf_int(va_list format_args, int total)
 		last_digit = display_int % 10;
 		buffer[add_in] = last_digit;
 		add_in++;
-		display_int = display_int /10;
+		display_int = display_int / 10;
 	}
 	while (add_in > 0)
 	{
