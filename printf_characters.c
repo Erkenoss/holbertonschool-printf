@@ -93,10 +93,9 @@ int printf_char(va_list format_args, int total)
 
 
 
-
 int printf_int(va_list format_args, int total)
 {
-	int display_int = va_arg(format_args, int);	
+	long display_int = va_arg(format_args, int);	
 	int add_in = 0;
 	int buffer[20];
 	int last_digit;
