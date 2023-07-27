@@ -119,19 +119,11 @@ int printf_int(va_list format_args, int total)
 		add_in++;
 		display_int = display_int /10;
 	}
-	if (add_in == 0)
+	while (add_in > 0)
 	{
-		_putchar('0');
+		_putchar('0' + buffer[add_in - 1]);
+		add_in--;
 		total++;
-	}
-	else
-	{
-		while (add_in > 0)
-		{
-			_putchar('0' + buffer[add_in - 1]);
-			add_in--;
-			total++;
-		}
 	}
 	return (total);
 }
