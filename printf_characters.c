@@ -110,6 +110,7 @@ int printf_int(va_list format_args, int total)
 	{
 		_putchar('-');
 		display_int = display_int * -1;
+		total++;
 	}
 	while (display_int != 0)
 	{
