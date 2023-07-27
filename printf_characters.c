@@ -101,10 +101,15 @@ int printf_int(va_list format_args, int total)
 	int buffer[20];
 	int last_digit;
 
+	if (display_int == 0)
+	{
+		_putchar('0');
+		total++;
+	}
 	if (display_int < 0)
 	{
 		_putchar('-');
-		display_int = -display_int;
+		display_int = display_int * -1;
 	}
 	while (display_int != 0)
 	{
