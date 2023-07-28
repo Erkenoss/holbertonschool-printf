@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -102,7 +100,7 @@ int printf_char(va_list format_args, int total)
 
 int printf_int(va_list format_args, int total)
 {
-	long display_int = va_arg(format_args, int);
+	long int display_int = va_arg(format_args, int); /** No need long int if you do the instrcution later in comment */
 	int add_in = 0;
 	int buffer[20];
 	int last_digit;
@@ -115,12 +113,16 @@ int printf_int(va_list format_args, int total)
 	if (display_int < 0)
 	{
 		_putchar('-');
-		display_int = display_int * -1;
+		display_int = display_int * -1; /** or without this line, check the while after. It's for the case INT_MIN */
 		total++;
 	}
 	while (display_int != 0)
 	{
 		last_digit = display_int % 10;
+		/**
+		 * if (last_digit < 0)
+		 *	last_digit *= -1;
+		*/
 		buffer[add_in] = last_digit;
 		add_in++;
 		display_int = display_int / 10;

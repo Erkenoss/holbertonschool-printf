@@ -1,0 +1,116 @@
+NAME:
+	_printf
+
+SYNOPSIS:
+
+	int _printf(const char *format, ...);
+
+INCLUDE:
+	
+	#include "main.h"
+	#include <stdarg.h>
+
+DESCRIPTION:
+
+	Display in the outut the format given when there is a call.
+	If there is no format, the function return -1 to signal an error. 
+	If there is % followed by the \0 (the end line characters), the function return -1.
+	When the function end, she return the number of characters present in the output.
+
+	You need to use it in followed instructions:
+		_printf("format", arguments);
+	OR FOR EXEMPLE:
+		_printf("format is: %i", arguments) 
+	
+	And the errors cases:
+		_printf("%");
+		_printf();
+
+	The function _printf call four other functions name:
+		printf_string
+		printf_int
+		printf_char
+		specifiers
+
+	The specifiers function is the cornerstone on which all the other are based. 
+	She has this prototype:
+
+		int specifiers(va_list format_args, const char format, int total);
+
+
+	When the flag, or characters, as you want, % is in the format. _printf() check for have the next characters and call specifiers if the next character is different from \0. 
+	If the characters are in the structure, she call the right function.
+	If there is no specifiers, she display % followed by the characters in question. 
+
+	FOR EXEMPLE:
+		a = 10;
+		_printf("%i\n", a);
+ 	The function display the value of a.
+		10
+
+		a = 10;
+		_printf("%i\n", a);
+		_printf("%z;\n%i\n", a);
+	You will have this output:
+		10
+		%z;
+		10
+	
+	Here, the different specifiers the function take for now with example for any of them:
+		%s (display a string by calling the printf_string function)
+		_printf("%s\n", "toto");
+		OUTPUT:
+		toto
+
+		%c (display a char by calling the printf_char function)
+		_printf("%c\n", 'k');
+		OUTPUT:
+		k
+
+		%i (display an int by calling the printf_int function)
+		_printf("%i\n", 10);
+		OUTPUT:
+		10
+
+		%d (display a decimal by calling the printf_int function (for now))
+		_printf("%d\n", 20);
+		OUTPUT:
+		20
+
+	For finish, the function return to _printf the total of display character. 
+	
+	
+	The printf_string function take all string into account and putchar character by character
+	She has this prototype:
+		
+		int printf_string(va_list format_args, int total);
+
+
+	The case when the argument is null will display this output:
+		(null)
+	
+	As specifiers function, this function return the total of character print in the output. 
+
+	
+	The printf_char function take all char into account, display it and finish by return the number of character display. 
+	She has this prototype:
+
+		int printf_char(va_list format_args, int total);
+
+	
+	The printf_int function can take into account %i and %d. She check if the number is negative and display the characters - in this last case. 
+	she has this prototype:
+
+		int printf_int(va_list format_args, int total);		
+
+
+	She put in a buffer all the digit one by one and display the content of this one by start with the end of him. 
+	Finally, she return the total of a characters display. 
+
+RETURN VALUE:
+	
+	The function _printf() will return -1 in the error case and the number of display characters in success.
+
+AUTHOR:
+
+	Write by Xavier Bertin and Jeremy Macal
