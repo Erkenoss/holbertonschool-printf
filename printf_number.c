@@ -23,12 +23,6 @@ int printf_binary(va_list format_args, int total)
 		_putchar('0');
 		total++;
 	}
-	if (display_int < 0)
-	{
-		_putchar('-');
-		display_int = display_int * -1;
-		total++;
-	}
 	while (display_int != 0)
 	{
 		last_digit = display_int % 2;
