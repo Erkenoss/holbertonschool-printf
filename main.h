@@ -18,6 +18,7 @@ typedef struct conversion
 
 int _putchar(char c);
 
+int printf_binary(va_list format_args, int total);
 int specifiers(va_list format_args, const char format, int total);
 int _printf(const char *format, ...);
 int printf_char(va_list format_args, int total);
