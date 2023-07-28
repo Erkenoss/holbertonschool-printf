@@ -100,7 +100,8 @@ int printf_char(va_list format_args, int total)
 
 int printf_int(va_list format_args, int total)
 {
-	long int display_int = va_arg(format_args, int); /** No need long int if you do the instrcution later in comment */
+	long int display_int = va_arg(format_args, int);
+	/** No need long int if you do the instrcution later in comment */
 	int add_in = 0;
 	int buffer[20];
 	int last_digit;
@@ -113,7 +114,8 @@ int printf_int(va_list format_args, int total)
 	if (display_int < 0)
 	{
 		_putchar('-');
-		display_int = display_int * -1; /** or without this line, check the while after. It's for the case INT_MIN */
+		display_int = display_int * -1;
+		/** or without this line, check the while after. It's for the case INT_MIN */
 		total++;
 	}
 	while (display_int != 0)
