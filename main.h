@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
+#include <stddef.h>
 
 /**
  * struct conversion - Structure for function_printf,
